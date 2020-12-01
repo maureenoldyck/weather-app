@@ -1,4 +1,3 @@
-// TODO: capture handle submit of city weather and enter
 
 (() => {
 
@@ -26,17 +25,12 @@
                             let weatherData = template.content.cloneNode(true);
                             weatherData.querySelector(".temperature").innerHTML = weatherInfo.main.temp;
                             weatherData.querySelector(".city-name").innerHTML = weatherInfo.name;
-                            weatherData.querySelector(".description").innerHTML = weatherInfo.weather.main;
+                            weatherData.querySelector(".description").innerHTML = weatherInfo.weather[0].main;
                             weatherData.querySelector(".highest").innerHTML = weatherInfo.main.temp_max;
                             weatherData.querySelector(".lowest").innerHTML = weatherInfo.main.temp_min;
-                            weatherData.querySelector(".details").innerHTML = weatherInfo.weather.description;
+                            weatherData.querySelector(".details").innerHTML = weatherInfo.weather[0].description;
                             target.appendChild(weatherData);
-
-
-
                     }));
-
-
 
                 })
 
