@@ -10,9 +10,27 @@
     <form action="" id="weather-form">
         <label for="city">City</label>
         <input type="text" id="city" name="city">
-        <input type="submit" value="Get Forcast">
+        <input type="submit" value="Get Forcast" id="run">
     </form>
     
+
+
+
+    <template id="weather-card">
+        <li class="card">
+            <h4 class="title">
+                <strong class="temperature"></strong>
+                <em class="city-name"></em>
+                <em class="description"></em>
+                <em class="highest"></em>
+                <em class="lowest"></em>
+            </h4>
+            <p class="details"></p>
+        </li>
+    </template>
+
+ <ol id="target"></ol>
+ 
     <script src="script.js"></script>
 </body>
 </html>
