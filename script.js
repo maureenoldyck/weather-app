@@ -28,6 +28,7 @@
                         document.querySelector(".highest").innerHTML = Math.round(weatherInfo.main.temp_max) + "°C";
                         document.querySelector(".lowest").innerHTML = Math.round(weatherInfo.main.temp_min) + "°C";
                         document.querySelector(".details").innerHTML = weatherInfo.weather[0].description;
+                        document.querySelector(".weather-icon").src = "images/" + weatherInfo.weather[0].main + ".png";
                     }));
 
                 })
@@ -43,14 +44,19 @@
                         // Using list[8] gives me the temperature of that date at 12:00 PM, to get the temp for the same hour each day add 8 (except day 5 will be the temp of 09:00 AM) 
                         document.querySelector(".tomorrowTemperature").innerHTML = Math.round(weatherInfo.list[8].main.temp) + "°C";
                         // Using the dt_text to get the day of the week
+                        document.querySelector(".weather-icon-tomorrow").src = "images/" + weatherInfo.list[8].weather[0].main + ".png";
                         document.querySelector(".dayAfterTomorrow").innerHTML = days[(new Date(weatherInfo.list[16].dt_txt)).getDay()];
                         document.querySelector(".dayAfterTomorrowTemperature").innerHTML = Math.round(weatherInfo.list[16].main.temp) + "°C";
+                        document.querySelector(".weather-icon-dayAfterTomorrow").src = "images/" + weatherInfo.list[16].weather[0].main + ".png";
                         document.querySelector(".inThreeDays").innerHTML = days[(new Date(weatherInfo.list[24].dt_txt)).getDay()];
                         document.querySelector(".inThreeDaysTemperature").innerHTML = Math.round(weatherInfo.list[24].main.temp) + "°C";
+                        document.querySelector(".weather-icon-inThreeDays").src = "images/" + weatherInfo.list[24].weather[0].main + ".png";
                         document.querySelector(".inFourDays").innerHTML = days[(new Date(weatherInfo.list[32].dt_txt)).getDay()];
                         document.querySelector(".inFourDaysTemperature").innerHTML = Math.round(weatherInfo.list[32].main.temp) + "°C";
+                        document.querySelector(".weather-icon-inFourDays").src = "images/" + weatherInfo.list[32].weather[0].main + ".png";
                         document.querySelector(".inFiveDays").innerHTML = days[(new Date(weatherInfo.list[39].dt_txt)).getDay()];
                         document.querySelector(".inFiveDaysTemperature").innerHTML = Math.round(weatherInfo.list[39].main.temp) + "°C";
+                        document.querySelector(".weather-icon-inFiveDays").src = "images/" + weatherInfo.list[39].weather[0].main + ".png";
                     }));
 
                 })
@@ -58,7 +64,6 @@
             );;
 
         content.style.maxHeight = 0;
-
     });
 
     // Collapsible header function
