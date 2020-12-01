@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Weather App</title>
 </head>
+
 <body>
-    <form action="" id="weather-form">
-        <label for="city">City</label>
-        <input type="text" id="city" name="city">
-        <input type="submit" value="Get Forcast" id="run">
-    </form>
-    
-
-
+    <div class="header">
+        <button class="collapsButton">Weather Of the Day</button>
+        <div class="content">
+            <form id="weather-form">
+                <div><i class="fas fa-search"></i>
+                    <input type="text" id="city" name="city" placeholder="Search city"> </div>
+                <input type="submit" value="Get Forecast" id="run" class="submitButton">
+            </form>
+        </div>
+    </div>
 
     <template id="weather-card">
         <li class="card">
             <h4 class="title">
                 <strong class="temperature"></strong>
-                <em class="city-name"></em>
                 <em class="description"></em>
                 <em class="highest"></em>
                 <em class="lowest"></em>
+                <em class="city-name"></em>
+                <p class="details"></p>
             </h4>
-            <p class="details"></p>
         </li>
+        <strong class="tomorrow"></strong>
+        <em class="tomorrowTemperature"></em>
+        <strong class="dayAfterTomorrow"></strong>
+        <em class="dayAfterTomorrowTemperature"></em>
+        <strong class="inThreeDays"></strong>
+        <em class="inThreeDaysTemperature"></em>
+        <strong class="inFourDays"></strong>
+        <em class="inFourDaysTemperature"></em>
+        <strong class="inFiveDays"></strong>
+        <em class="inFiveDaysTemperature"></em>
     </template>
 
- <ol id="target"></ol>
- 
+    <ul id="target"></ul>
+    <script src="https://kit.fontawesome.com/fd87467771.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
-
-

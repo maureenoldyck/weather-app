@@ -25,7 +25,7 @@
                         let target = document.querySelector("#target");
                         let weatherData = template.content.cloneNode(true);
                         weatherData.querySelector(".temperature").innerHTML = Math.round(weatherInfo.main.temp) + "°C";
-                        weatherData.querySelector(".city-name").innerHTML = weatherInfo.name ;
+                        weatherData.querySelector(".city-name").innerHTML = weatherInfo.name;
                         weatherData.querySelector(".description").innerHTML = weatherInfo.weather[0].main;
                         weatherData.querySelector(".highest").innerHTML = Math.round(weatherInfo.main.temp_max) + "°C";
                         weatherData.querySelector(".lowest").innerHTML = Math.round(weatherInfo.main.temp_min) + "°C";
@@ -68,23 +68,16 @@
 
     });
 
-
-
-    
-
-
-
-    (() => {
-
-       
-        // console.log(days[date.setDate(date.getDate() + 1)]);
-
-
-
+    // Collapsible header function
+    document.querySelector(".collapsButton").addEventListener("click", () => {
+        document.querySelector(".collapsButton").classList.toggle("collapsButton--active");
+        const content = document.querySelector(".collapsButton").nextElementSibling;
+        if (document.querySelector(".collapsButton").classList.contains("collapsButton--active")) {
+            content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+            content.style.maxHeight = 0; 
+        }
     });
-
-
-
 
 
 
