@@ -27,8 +27,7 @@
                         document.querySelector(".description").innerHTML = weatherInfo.weather[0].main;
                         document.querySelector(".highest").innerHTML = Math.round(weatherInfo.main.temp_max) + "°C";
                         document.querySelector(".lowest").innerHTML = Math.round(weatherInfo.main.temp_min) + "°C";
-                        document.querySelector(".details").innerHTML = weatherInfo.weather[0].description;
-                        document.querySelector(".weather-icon").src = "images/" + weatherInfo.weather[0].main + ".png";
+                        document.querySelector(".weather-image").src = "images/" + weatherInfo.weather[0].main + ".png";
                     }));
 
                 })

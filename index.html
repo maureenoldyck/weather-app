@@ -13,7 +13,7 @@
 
 <body>
     <div class="header">
-        <button class="collapsButton">Weather Of the Day</button>
+        <button class="collapsButton city-name">Weather Of the Day</button>
         <div class="content">
             <form id="weather-form">
                 <div><i class="fas fa-search"></i>
@@ -24,36 +24,54 @@
     </div>
 
     <div id="weather-card">
-        <li class="card">
-            <h4 class="title">
-                <strong class="temperature"></strong>
-                <em class="description"></em>
-                <em class="highest"></em>
-                <em class="lowest"></em>
-                <em class="city-name"></em>
-                <p class="details"></p>
-                <img src="" alt="weather-icon" class="weather-icon">
-            </h4>
-        </li>
-        <strong class="tomorrow"></strong>
-        <em class="tomorrowTemperature"></em>
-        <img src="" alt="weather-icon" class="weather-icon-tomorrow">
-        <strong class="dayAfterTomorrow"></strong>
-        <em class="dayAfterTomorrowTemperature"></em>
-        <img src="" alt="weather-icon" class="weather-icon-dayAfterTomorrow">
-        <strong class="inThreeDays"></strong>
-        <em class="inThreeDaysTemperature"></em>
-        <img src="" alt="weather-icon" class="weather-icon-inThreeDays">
-        <strong class="inFourDays"></strong>
-        <em class="inFourDaysTemperature"></em>
-        <img src="" alt="weather-icon" class="weather-icon-inFourDays">
-        <strong class="inFiveDays"></strong>
-        <em class="inFiveDaysTemperature"></em>
-        <img src="" alt="weather-icon" class="weather-icon-inFiveDays">
-    </div>
+        <div class="card">
+            <div class="card-info">
+                <img src="images/" alt="weather-icon" class="weather-image">
+               <p> <strong class="temperature"></strong></p>
+                <ul class="temp-info">
+                    <li> <em class="highest"></em></li>
+                    <li> <em class="description"></em></li>
+                    <li> <em class="lowest"></em></li>
+                </ul>
+            </div>
+        </div>
 
-    <ul id="target"></ul>
-    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div class="forecast">
+            <ul>
+                <li class="forecast-element day"> <strong class="tomorrow"></strong></li>
+                <li class="forecast-element"> <em class="tomorrowTemperature"></em></li>
+                <li class="forecast-element"> <img src="images/" alt="weather-icon" class="weather-icon-tomorrow"></li>
+            </ul>
+
+            <ul>
+                <li class="forecast-element day"> <strong class="dayAfterTomorrow"></strong></li>
+                <li class="forecast-element"> <em class="dayAfterTomorrowTemperature"></em></li>
+                <li class="forecast-element"> <img src="images/" alt="weather-icon"
+                        class="weather-icon-dayAfterTomorrow"></li>
+            </ul>
+
+            <ul>
+                <li class="forecast-element day"> <strong class="inThreeDays"></strong></li>
+                <li class="forecast-element"> <em class="inThreeDaysTemperature"></em></li>
+                <li class="forecast-element"> <img src="images/" alt="weather-icon" class="weather-icon-inThreeDays">
+                </li>
+            </ul>
+            <ul>
+                <li class="forecast-element day"> <strong class="inFourDays"></strong> </li>
+                <li class="forecast-element"> <em class="inFourDaysTemperature"></em></li>
+                <li class="forecast-element"> <img src="images/" alt="weather-icon" class="weather-icon-inFourDays">
+                </li>
+            </ul>
+            <ul>
+                <li class="forecast-element day"> <strong class="inFiveDays"></strong></li>
+                <li class="forecast-element"> <em class="inFiveDaysTemperature"></em></li>
+                <li class="forecast-element"> <img src="images/" alt="weather-icon" class="weather-icon-inFiveDays">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     <script src="https://kit.fontawesome.com/fd87467771.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
