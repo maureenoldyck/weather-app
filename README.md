@@ -32,7 +32,7 @@ In this challenge you will use and consolidate your knowledge on:
   
 
 ##  🌈 Result 
-### - [weather-app](https://maureenoldyck.github.io/weather-app/ "Weather App")
+### - [Weather App](https://maureenoldyck.github.io/weather-app/ "weather-app")
  
 
   
