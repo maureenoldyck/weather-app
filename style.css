@@ -3,10 +3,9 @@
     padding: 0;
 }
 
-.body {
+body {
 
-    background-color: #F4F5FB;
-    text-align: center;
+    background-color: #f5cec7;
     font-family: 'Bitter', serif;
 
 }
@@ -24,7 +23,6 @@ form {
 }
 
 #weather-form {
-    background-color: #f5cec7;
     padding: 10px;
 }
 
@@ -56,20 +54,24 @@ form {
     color: white;
     text-align: left;
     cursor: pointer;
-    padding: 15px;
+    padding: 35px;
     width: 100%;
     border: none;
     outline: none;
     font-size: 15px;
     display: block;
     transition: background 0.2s;
+    text-align: center;
+    font-size: 130%;
+    font-family: 'Bitter', serif;
+
 }
 
 .collapsButton::after {
     content: '\002B';
     color: white;
     font-weight: bold;
-    float: right;
+    float: left;
     margin-left: 5px;
 }
 
@@ -82,42 +84,54 @@ form {
     width: 100%;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    background-color: #f5cec7;
 }
 
 
 .card {
     display: flex;
+    padding-top: 40px;
 }
 
 .temp-info li {
     flex-direction: column;
     flex: auto;
     text-align: center;
-    padding: 10px
+    padding: 10px;
 }
 
 li {
     list-style-type: none;
+    align-self: center;
 }
 
 .card-info {
     text-align: center;
+    width: 100%;
+}
+
+.card-info p {
+    font-size: 50px;
+    padding-bottom: 15px;
 }
 
 .weather-image {
     width: 40%;
 }
 
+.forecast {
+    background-color: #fbcd6a;
+    border-radius: 25px 25px 0 0;
+}
+
+
 .forecast-element {
-    display: inline-block;
     padding: 5px 10px;
+    align-items: center;
 }
 
 
 ul {
     display: flex;
-    background-color: #f5cec7;
 }
 
 .day {
@@ -125,9 +139,20 @@ ul {
 }
 
 .forecast-element img {
-    width: 15px;
+    width: 50px;
 }
 
 img {
     width: 5%;
+}
+
+.footer {
+    text-align: center;
+    font-size: 10px;
+    align-self: flex-end;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
