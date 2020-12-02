@@ -163,3 +163,16 @@ a {
 }
 
 
+canvas {
+    max-height: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+
+
+.temp-info {
+    cursor: pointer;
+    transition: background 0.2s;
+}

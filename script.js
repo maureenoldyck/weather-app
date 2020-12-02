@@ -5,6 +5,7 @@
     // Declaration of variables 
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const content = document.querySelector(".collapsButton").nextElementSibling;
+    const canvas = document.querySelector(".temp-info").nextElementSibling;
 
 
     // Default value based on current location
@@ -111,7 +112,7 @@
 
                         for (let i = 0; i < 8; i++) {
 
-                            hourArray.push((new Date(forecastInfo.list[i].dt_txt)).getHours());
+                            hourArray.push((new Date(forecastInfo.list[i].dt_txt)).getHours() + ":00");
                             tempArray.push((forecastInfo.list[i].main.temp));
                         };
 
@@ -121,7 +122,7 @@
                             data: {
                                 labels: hourArray,
                                 datasets: [{
-                                    label: false,
+                                    label: "Temperature in °C",
                                     fill: false,
                                     borderColor: "rgba(75, 192, 192, 1)",
                                     pointBorderColor: "rgba(75,192,192,1)",
@@ -140,7 +141,7 @@
                                             tickMarkLength: false,
                                             drawBorder: false,
                                         }
-                                        
+
                                     }],
                                     yAxes: [{
                                         display: false,
@@ -173,11 +174,11 @@
     });
 
     document.querySelector(".temp-info").addEventListener("click", () => {
-        document.querySelector(".collapsButton").classList.toggle("collapsButton--active");
-        if (document.querySelector(".collapsButton").classList.contains("collapsButton--active")) {
-            content.style.maxHeight = content.scrollHeight + "px";
+        document.querySelector(".temp-info").classList.toggle("--active");
+        if (document.querySelector(".temp-info").classList.contains("--active")) {
+            canvas.style.maxHeight = "150px";
         } else {
-            content.style.maxHeight = 0;
+            canvas.style.maxHeight = 0;
         }
     });
 
