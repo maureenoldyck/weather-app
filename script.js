@@ -11,8 +11,8 @@
     window.addEventListener("load", () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
-               let longitude = position.coords.longitude;
-               let latitude = position.coords.latitude;
+                let longitude = position.coords.longitude;
+                let latitude = position.coords.latitude;
                 let api = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=current,hourly,minutely&units=metric&appid=be4553b34e49d94c654cc1c6eb775c17";
 
                 fetch(api)
@@ -40,18 +40,13 @@
                             document.querySelector(".inFiveDaysTemperature").innerHTML = Math.round(locationInfo.daily[5].temp.day) + "°C";
                             document.querySelector(".weather-icon-inFiveDays").src = "images/" + locationInfo.daily[5].weather[0].main + ".png";
 
+
                         }));
-                    });
-                    ;
+                    });;
             });
         };
 
     });
-
-
-
-
-
 
 
 
@@ -73,11 +68,9 @@
                         document.querySelector(".highest").innerHTML = "<i class='fas fa-caret-up'></i>" + Math.round(weatherInfo.main.temp_max) + "°C";
                         document.querySelector(".lowest").innerHTML = "<i class='fas fa-caret-down'></i>" + Math.round(weatherInfo.main.temp_min) + "°C";
                         document.querySelector(".weather-image").src = "images/" + weatherInfo.weather[0].main + ".png";
-                    }));
 
-                })
-
-            );;
+                    }))
+                }));
 
         // Weather next 5 days 
         fetch(weatherForecast)
@@ -111,6 +104,20 @@
                         document.querySelector(".inFiveDays").innerHTML = days[(new Date(dayArray[4].dt_txt)).getDay()];
                         document.querySelector(".inFiveDaysTemperature").innerHTML = Math.round(dayArray[4].main.temp) + "°C";
                         document.querySelector(".weather-icon-inFiveDays").src = "images/" + dayArray[4].weather[0].main + ".png";
+
+
+                        let hourArray = [];
+                        let tempArray = [];
+
+                        for (let i = 0; i < 8; i++) {
+
+                            hourArray.push((new Date(forecastInfo.list[i].dt_txt)).getHours());
+                            tempArray.push((forecastInfo.list[i].main.temp));
+
+                        };
+
+                        console.log(hourArray);
+                        console.log(tempArray);
 
                     }));
 
