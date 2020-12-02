@@ -113,11 +113,44 @@
 
                             hourArray.push((new Date(forecastInfo.list[i].dt_txt)).getHours());
                             tempArray.push((forecastInfo.list[i].main.temp));
-
                         };
 
-                        console.log(hourArray);
-                        console.log(tempArray);
+                        const temperatureChart = document.querySelector("#tempChart");
+                        new Chart(temperatureChart, {
+                            type: 'line',
+                            data: {
+                                labels: hourArray,
+                                datasets: [{
+                                    label: false,
+                                    fill: false,
+                                    borderColor: "rgba(75, 192, 192, 1)",
+                                    pointBorderColor: "rgba(75,192,192,1)",
+                                    pointBackgroundColor: "#fff",
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHitRadius: 10,
+                                    data: tempArray,
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    xAxes: [{
+                                        gridLines: {
+                                            drawOnChartArea: false,
+                                            tickMarkLength: false,
+                                            drawBorder: false,
+                                        }
+                                        
+                                    }],
+                                    yAxes: [{
+                                        display: false,
+                                    }]
+                                },
+                                legend: {
+                                    display: false
+                                },
+                            }
+                        });
 
                     }));
 
@@ -138,6 +171,16 @@
             content.style.maxHeight = 0;
         }
     });
+
+    document.querySelector(".temp-info").addEventListener("click", () => {
+        document.querySelector(".collapsButton").classList.toggle("collapsButton--active");
+        if (document.querySelector(".collapsButton").classList.contains("collapsButton--active")) {
+            content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+            content.style.maxHeight = 0;
+        }
+    });
+
 
 
 })();
