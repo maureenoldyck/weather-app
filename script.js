@@ -102,11 +102,28 @@
                         }
 
 
+                        // Get current time 
+                        let currentTimeOffset = (new Date().getTimezoneOffset()) / 60; // Offset in hours
+                        let timezone = weatherInfo.timezone; // offset in seconds 
+                        let offsetSearchLocation = timezone / 3600; // ofsset in hours
+                        let offsetGmt = currentTimeOffset + offsetSearchLocation;
+                        let timeSearchLocation = new Date().getHours() + offsetGmt;
 
-                        //TODO: 
-                        // let timezonTime = weatherInfo.timezone;
-                        // let currentTimeLocation = timezonTime * 60000 ;
-                        // console.log(currentTimeLocation);
+                        if (timeSearchLocation > 21) {
+                            document.body.style.backgroundColor = "#2B2B2B";
+                        } else if (timeSearchLocation > 18) {
+                            document.body.style.backgroundColor = "#4699C2";
+                        } else if (timeSearchLocation > 15) {
+                            document.body.style.backgroundColor = "#F79C65";
+                        } else if (timeSearchLocation > 12) {
+                            document.body.style.backgroundColor = "#7DABDO";
+                        } else if (timeSearchLocation > 8) {
+                            document.body.style.backgroundColor = "#CFE7EA";
+                        } else if (timeSearchLocation >= 5) {
+                            document.body.style.backgroundColor = "#f5cec7";
+                        } else {
+                            document.body.style.backgroundColor = "#2B2B2B";
+                        }
 
                     }))
                 }));
