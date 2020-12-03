@@ -67,8 +67,8 @@
                         document.querySelector(".temperature").innerHTML = Math.round(weatherInfo.main.temp) + "°C";
                         document.querySelector(".city-name").innerHTML = weatherInfo.name + ", " + weatherInfo.sys.country;
                         document.querySelector(".description").innerHTML = weatherInfo.weather[0].main;
-                        document.querySelector(".highest").innerHTML = "<i class='fas fa-caret-up'></i>" + Math.round(weatherInfo.main.temp_max) + "°C";
-                        document.querySelector(".lowest").innerHTML = "<i class='fas fa-caret-down'></i>" + Math.round(weatherInfo.main.temp_min) + "°C";
+                        document.querySelector(".highest").innerHTML = "<i class='fas fa-caret-up'></i> " + Math.round(weatherInfo.main.temp_max) + "°C";
+                        document.querySelector(".lowest").innerHTML = "<i class='fas fa-caret-down'></i> " + Math.round(weatherInfo.main.temp_min) + "°C";
                         document.querySelector(".weather-image").src = "images/" + weatherInfo.weather[0].main + ".png";
 
                         // Script for animations (add class for specific description) & for the weather texts
@@ -226,7 +226,7 @@
     document.querySelector(".weather-image").addEventListener("click", () => {
         document.querySelector(".weather-image").classList.toggle("--active");
         if (document.querySelector(".weather-image").classList.contains("--active")) {
-            weatherText.style.maxHeight = "50px";
+            weatherText.style.maxHeight = content.scrollHeight + "px";
         } else {
             weatherText.style.maxHeight = 0;
         }
