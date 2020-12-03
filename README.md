@@ -6,7 +6,7 @@ For this exercise we had to create a weather app. We had to use our recent gaine
 
 ## ☔  Tools used 
 - Visual Studio Code 
-- Languages: HTML, CSS, JS
+- Languages: HTML, CSS, JS, JSON
 - Chart.JS
 - Markdown
 - Google, our best friend
