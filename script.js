@@ -112,7 +112,7 @@
                         } else if (timeSearchLocation > 15) {
                             document.body.style.backgroundColor = "#F79C65";
                         } else if (timeSearchLocation > 12) {
-                            document.body.style.backgroundColor = "#7DABDO";
+                            document.body.style.backgroundColor = "#7DABD0";
                         } else if (timeSearchLocation > 8) {
                             document.body.style.backgroundColor = "#CFE7EA";
                         } else if (timeSearchLocation > 4) {
