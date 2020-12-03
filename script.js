@@ -69,17 +69,24 @@
                         document.querySelector(".lowest").innerHTML = "<i class='fas fa-caret-down'></i>" + Math.round(weatherInfo.main.temp_min) + "°C";
                         document.querySelector(".weather-image").src = "images/" + weatherInfo.weather[0].main + ".png";
 
-
+// Script for animations, add class for specific description
                         if (weatherInfo.weather[0].main == "Clouds") {
+                            document.querySelector("img").className = "weather-image";
                             document.querySelector("img").classList.add("cloud");
                         } else if (weatherInfo.weather[0].main == "Clear") {
+                            document.querySelector("img").className = "weather-image";
                             document.querySelector("img").classList.add("sun");
                             document.querySelector("img").style.paddingBottom = "15px";
                         } else if (weatherInfo.weather[0].main == "Rain") {
+                            document.querySelector("img").className = "weather-image";
                             document.querySelector("img").classList.add("rain");
                             document.querySelector("img").style.paddingBottom = "10px";
                         } else if (weatherInfo.weather[0].main == "Snow") {
+                            document.querySelector("img").className = "weather-image";
                             document.querySelector("img").classList.add("snow");
+                        } else {
+                            document.querySelector("img").className = "weather-image";
+                            document.querySelector("img").classList.add("cloud");
                         }
 
 
