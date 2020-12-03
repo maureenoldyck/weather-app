@@ -41,7 +41,6 @@
                             document.querySelector(".inFiveDaysTemperature").innerHTML = Math.round(locationInfo.daily[5].temp.day) + "°C";
                             document.querySelector(".weather-icon-inFiveDays").src = "images/" + locationInfo.daily[5].weather[0].main + ".png";
 
-
                         }));
                     });;
             });
@@ -64,11 +63,31 @@
                 ((response) => {
                     response.json().then((weatherInfo => {
                         document.querySelector(".temperature").innerHTML = Math.round(weatherInfo.main.temp) + "°C";
-                        document.querySelector(".city-name").innerHTML = weatherInfo.name;
+                        document.querySelector(".city-name").innerHTML = weatherInfo.name + ", " + weatherInfo.sys.country;
                         document.querySelector(".description").innerHTML = weatherInfo.weather[0].main;
                         document.querySelector(".highest").innerHTML = "<i class='fas fa-caret-up'></i>" + Math.round(weatherInfo.main.temp_max) + "°C";
                         document.querySelector(".lowest").innerHTML = "<i class='fas fa-caret-down'></i>" + Math.round(weatherInfo.main.temp_min) + "°C";
                         document.querySelector(".weather-image").src = "images/" + weatherInfo.weather[0].main + ".png";
+
+
+                        if (weatherInfo.weather[0].main == "Clouds") {
+                            document.querySelector("img").classList.add("cloud");
+                        } else if (weatherInfo.weather[0].main == "Clear") {
+                            document.querySelector("img").classList.add("sun");
+                            document.querySelector("img").style.paddingBottom = "15px";
+                        } else if (weatherInfo.weather[0].main == "Rain") {
+                            document.querySelector("img").classList.add("rain");
+                            document.querySelector("img").style.paddingBottom = "10px";
+                        } else if (weatherInfo.weather[0].main == "Snow") {
+                            document.querySelector("img").classList.add("snow");
+                        }
+
+
+
+                        //TODO: 
+                        // let timezonTime = weatherInfo.timezone;
+                        // let currentTimeLocation = timezonTime * 60000 ;
+                        // console.log(currentTimeLocation);
 
                     }))
                 }));
@@ -110,7 +129,7 @@
                         let hourArray = [];
                         let tempArray = [];
 
-                        for (let i = 0; i < 8; i++) {
+                        for (let i = 0; i < 9; i++) {
 
                             hourArray.push((new Date(forecastInfo.list[i].dt_txt)).getHours() + ":00");
                             tempArray.push((forecastInfo.list[i].main.temp));
@@ -162,17 +181,19 @@
         content.style.maxHeight = 0;
     });
 
-    // Collapsible header function
+    // Collaps functions
 
+    // Header
     document.querySelector(".collapsButton").addEventListener("click", () => {
-        document.querySelector(".collapsButton").classList.toggle("collapsButton--active");
-        if (document.querySelector(".collapsButton").classList.contains("collapsButton--active")) {
+        document.querySelector(".collapsButton").classList.toggle("--active");
+        if (document.querySelector(".collapsButton").classList.contains("--active")) {
             content.style.maxHeight = content.scrollHeight + "px";
         } else {
             content.style.maxHeight = 0;
         }
     });
 
+    // Chart
     document.querySelector(".temp-info").addEventListener("click", () => {
         document.querySelector(".temp-info").classList.toggle("--active");
         if (document.querySelector(".temp-info").classList.contains("--active")) {

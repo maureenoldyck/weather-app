@@ -39,5 +39,6 @@ In this challenge you will use and consolidate your knowledge on:
 ## 🐞 Bugs in my app
 
 - The graph shows the hours where the user is located, not where the searched city is located. (Nothing I can change about this at the moment as this is how I get the data from the openWeather API).
+- When the user allows the location, location is seen as "Current Location" instead of the city name.
 
 
