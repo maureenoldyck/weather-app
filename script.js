@@ -8,8 +8,6 @@
     const canvas = document.querySelector(".temp-info").nextElementSibling;
     const weatherText = document.querySelector(".weather-image").nextElementSibling;
 
-
-
     // Default value based on current location
     window.addEventListener("load", () => {
         if (navigator.geolocation) {
@@ -49,8 +47,6 @@
         };
 
     });
-
-
 
     // Event listener to get input value, create the api link and fetch the data
     document.querySelector("#run").addEventListener("click", () => {
@@ -101,14 +97,14 @@
                             document.querySelector(".weather-text").innerHTML = "Hello there, make the best out of today. I believe in you!"
                         }
 
-
-                        // Get current time 
+                        // Get current time of location 
                         let currentTimeOffset = (new Date().getTimezoneOffset()) / 60; // Offset in hours
                         let timezone = weatherInfo.timezone; // offset in seconds 
-                        let offsetSearchLocation = timezone / 3600; // ofsset in hours
+                        let offsetSearchLocation = timezone / 3600; // offset in hours
                         let offsetGmt = currentTimeOffset + offsetSearchLocation;
                         let timeSearchLocation = new Date().getHours() + offsetGmt;
 
+                        // Change background color for specific time period of location (if it's night it will be darker)
                         if (timeSearchLocation > 21) {
                             document.body.style.backgroundColor = "#2B2B2B";
                         } else if (timeSearchLocation > 18) {
@@ -119,7 +115,7 @@
                             document.body.style.backgroundColor = "#7DABDO";
                         } else if (timeSearchLocation > 8) {
                             document.body.style.backgroundColor = "#CFE7EA";
-                        } else if (timeSearchLocation >= 5) {
+                        } else if (timeSearchLocation > 4) {
                             document.body.style.backgroundColor = "#f5cec7";
                         } else {
                             document.body.style.backgroundColor = "#2B2B2B";
@@ -162,15 +158,18 @@
                         document.querySelector(".weather-icon-inFiveDays").src = "images/" + dayArray[4].weather[0].main + ".png";
 
 
-                        let hourArray = [];
-                        let tempArray = [];
 
+                        // Arrays to make graph 
+                        let hourArray = []; // x-as
+                        let tempArray = []; // y-as
+
+                        // Loop to get the next 24 hours
                         for (let i = 0; i < 9; i++) {
-
                             hourArray.push((new Date(forecastInfo.list[i].dt_txt)).getHours() + ":00");
                             tempArray.push((forecastInfo.list[i].main.temp));
                         };
 
+                        // Data for chart
                         const temperatureChart = document.querySelector("#tempChart");
                         new Chart(temperatureChart, {
                             type: 'line',
@@ -196,12 +195,13 @@
                                             tickMarkLength: false,
                                             drawBorder: false,
                                         }
-
                                     }],
+
                                     yAxes: [{
                                         display: false,
                                     }]
                                 },
+
                                 legend: {
                                     display: false
                                 },
@@ -214,10 +214,12 @@
 
             );;
 
+        // Make search bar disappear again after search 
         content.style.maxHeight = 0;
     });
 
-    // Collaps functions
+
+    // Collaps/Accordian functions
 
     // Header
     document.querySelector(".collapsButton").addEventListener("click", () => {
