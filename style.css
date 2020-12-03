@@ -119,6 +119,8 @@ li {
 
 .weather-image {
     width: 40%;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 .forecast {
@@ -176,6 +178,17 @@ canvas {
     transition: background 0.2s;
 }
 
+.weatherText {
+    max-height: 0;
+    width: 75%;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin: 0 auto;
+}
+
+.weatherText p {
+    font-size: 10px;
+}
 
 .cloud {
     position: relative;
@@ -275,7 +288,6 @@ canvas {
     50% {
         transform: rotate(0deg);
     }
-
 
     75% {
         transform: rotate(-7deg);

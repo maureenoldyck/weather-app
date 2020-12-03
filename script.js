@@ -6,6 +6,8 @@
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const content = document.querySelector(".collapsButton").nextElementSibling;
     const canvas = document.querySelector(".temp-info").nextElementSibling;
+    const weatherText = document.querySelector(".weather-image").nextElementSibling;
+
 
 
     // Default value based on current location
@@ -69,24 +71,34 @@
                         document.querySelector(".lowest").innerHTML = "<i class='fas fa-caret-down'></i>" + Math.round(weatherInfo.main.temp_min) + "°C";
                         document.querySelector(".weather-image").src = "images/" + weatherInfo.weather[0].main + ".png";
 
-// Script for animations, add class for specific description
+                        // Script for animations (add class for specific description) & for the weather texts
                         if (weatherInfo.weather[0].main == "Clouds") {
                             document.querySelector("img").className = "weather-image";
+                            document.querySelector(".weather-text").innerHTML = "";
                             document.querySelector("img").classList.add("cloud");
+                            document.querySelector(".weather-text").innerHTML = "Hello there, it's a cloudy day today. Eventhough the sun might not be shining at the moment, you will always be my sunshine!";
                         } else if (weatherInfo.weather[0].main == "Clear") {
                             document.querySelector("img").className = "weather-image";
+                            document.querySelector(".weather-text").innerHTML = "";
                             document.querySelector("img").classList.add("sun");
-                            document.querySelector("img").style.paddingBottom = "15px";
+                            document.querySelector("img").style.paddingBottom = "20px";
+                            document.querySelector(".weather-text").innerHTML = "Hello there, the sun is shining, how nice! Definitely the perfect time to go out and get those Vitamin D! Don't forget to put on sunscreen!";
                         } else if (weatherInfo.weather[0].main == "Rain") {
                             document.querySelector("img").className = "weather-image";
+                            document.querySelector(".weather-text").innerHTML = "";
                             document.querySelector("img").classList.add("rain");
                             document.querySelector("img").style.paddingBottom = "10px";
+                            document.querySelector(".weather-text").innerHTML = "Hello there, it's a rainy day today. If you don't like rain, think about the fact that without rain there would be no life. So get out there and enjoy the rain! Don't forget your umbrella!"
                         } else if (weatherInfo.weather[0].main == "Snow") {
                             document.querySelector("img").className = "weather-image";
+                            document.querySelector(".weather-text").innerHTML = "";
                             document.querySelector("img").classList.add("snow");
+                            document.querySelector(".weather-text").innerHTML = "Hello there, it's snowing! The perfect moment to cosy up with a loved one, a thick blanket and hot chocolate!"
                         } else {
                             document.querySelector("img").className = "weather-image";
+                            document.querySelector(".weather-text").innerHTML = "";
                             document.querySelector("img").classList.add("cloud");
+                            document.querySelector(".weather-text").innerHTML = "Hello there, make the best out of today. I believe in you!"
                         }
 
 
@@ -210,6 +222,14 @@
         }
     });
 
-
+    // Sentence of the weather
+    document.querySelector(".weather-image").addEventListener("click", () => {
+        document.querySelector(".weather-image").classList.toggle("--active");
+        if (document.querySelector(".weather-image").classList.contains("--active")) {
+            weatherText.style.maxHeight = "50px";
+        } else {
+            weatherText.style.maxHeight = 0;
+        }
+    });
 
 })();
