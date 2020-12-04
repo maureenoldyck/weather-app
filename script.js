@@ -5,8 +5,9 @@
     // Declaration of variables 
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const content = document.querySelector(".collapsButton").nextElementSibling;
-    const canvas = document.querySelector(".temp-info").nextElementSibling;
+    let canvas = document.querySelector(".temp-info").nextElementSibling;
     const weatherText = document.querySelector(".weather-image").nextElementSibling;
+    let chart;
 
     // Default value based on current location
     window.addEventListener("load", () => {
@@ -47,6 +48,12 @@
         };
 
     });
+
+
+    //Destroy chart so chart values will be reset to zero
+    if(chart && chart !== null){
+        chart.destroy();
+    }
 
     // Event listener to get input value, create the api link and fetch the data
     document.querySelector("#run").addEventListener("click", () => {
@@ -171,8 +178,8 @@
                         };
 
                         // Data for chart
-                        const temperatureChart = document.querySelector("#tempChart");
-                        new Chart(temperatureChart, {
+                        let temperatureChart = document.querySelector("#tempChart").getContext('2d');
+                        chart = new Chart(temperatureChart, {
                             type: 'bar',
                             data: {
                                 datasets: [{
