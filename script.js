@@ -167,7 +167,7 @@
                         for (let i = 0; i < 9; i++) {
                             hourArray.push((new Date(forecastInfo.list[i].dt_txt)).getHours() + ":00");
                             tempArray.push((forecastInfo.list[i].main.temp));
-                            precipitationArray.push((forecastInfo.list[i].pop));
+                            precipitationArray.push((forecastInfo.list[i].pop * 100));
                         };
 
                         // Data for chart
@@ -176,7 +176,7 @@
                             type: 'bar',
                             data: {
                                 datasets: [{
-                                    label: "Chance of Precipitation in millimetres",
+                                    label: "Chance of Precipitation in %",
                                     data: precipitationArray,
                                     order: 1,
                                     pointBorderColor: "rgba(75,192,192,1)",
@@ -211,6 +211,9 @@
 
                                     yAxes: [{
                                         display: false,
+                                    }],
+                                    ticks: [{ 
+                                        beginAtZero: true,
                                     }]
                                 },
 
