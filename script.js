@@ -176,7 +176,7 @@
                             type: 'bar',
                             data: {
                                 datasets: [{
-                                    label: "Chance of Precipitation in %",
+                                    label: "Chance of Precipitation in millimetres",
                                     data: precipitationArray,
                                     order: 1,
                                     pointBorderColor: "rgba(75,192,192,1)",
