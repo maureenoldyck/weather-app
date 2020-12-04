@@ -49,12 +49,6 @@
 
     });
 
-
-    //Destroy chart so chart values will be reset to zero
-    if(chart && chart !== null){
-        chart.destroy();
-    }
-
     // Event listener to get input value, create the api link and fetch the data
     document.querySelector("#run").addEventListener("click", () => {
         event.preventDefault();
