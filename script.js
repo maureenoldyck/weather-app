@@ -162,20 +162,30 @@
                         // Arrays to make graph 
                         let hourArray = []; // x-as
                         let tempArray = []; // y-as
+                        let precipitationArray = []; // y-as 
 
                         // Loop to get the next 24 hours
                         for (let i = 0; i < 9; i++) {
                             hourArray.push((new Date(forecastInfo.list[i].dt_txt)).getHours() + ":00");
                             tempArray.push((forecastInfo.list[i].main.temp));
+                            precipitationArray.push((forecastInfo.list[i].pop));
                         };
 
                         // Data for chart
                         const temperatureChart = document.querySelector("#tempChart");
                         new Chart(temperatureChart, {
-                            type: 'line',
+                            type: 'bar',
                             data: {
-                                labels: hourArray,
                                 datasets: [{
+                                    label: "Chance of Precipitation in %",
+                                    data: precipitationArray,
+                                    order: 1,
+                                    pointBorderColor: "rgba(75,192,192,1)",
+                                    pointBackgroundColor: "#fff",
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHitRadius: 10,
+                                }, { 
                                     label: "Temperature in °C",
                                     fill: false,
                                     borderColor: "rgba(75, 192, 192, 1)",
@@ -185,7 +195,10 @@
                                     pointHoverRadius: 5,
                                     pointHitRadius: 10,
                                     data: tempArray,
-                                }]
+                                    type: 'line',
+                                    order: 2,
+                                }],
+                                labels: hourArray,
                             },
                             options: {
                                 scales: {
