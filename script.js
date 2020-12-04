@@ -236,8 +236,8 @@
 
     // Header
     document.querySelector(".collapsButton").addEventListener("click", () => {
-        document.querySelector(".collapsButton").classList.toggle("--active");
-        if (document.querySelector(".collapsButton").classList.contains("--active")) {
+        document.querySelector(".collapsButton").classList.toggle("active");
+        if (document.querySelector(".collapsButton").classList.contains("active")) {
             content.style.maxHeight = content.scrollHeight + "px";
         } else {
             content.style.maxHeight = 0;
@@ -246,9 +246,9 @@
 
     // Chart
     document.querySelector(".temp-info").addEventListener("click", () => {
-        document.querySelector(".temp-info").classList.toggle("--active");
-        if (document.querySelector(".temp-info").classList.contains("--active")) {
-            canvas.style.maxHeight = "150px";
+        document.querySelector(".temp-info").classList.toggle("active");
+        if (document.querySelector(".temp-info").classList.contains("active")) {
+            canvas.style.maxHeight = content.scrollHeight + "px";
         } else {
             canvas.style.maxHeight = 0;
         }
@@ -256,8 +256,8 @@
 
     // Sentence of the weather
     document.querySelector(".weather-image").addEventListener("click", () => {
-        document.querySelector(".weather-image").classList.toggle("--active");
-        if (document.querySelector(".weather-image").classList.contains("--active")) {
+        document.querySelector(".weather-image").classList.toggle("active");
+        if (document.querySelector(".weather-image").classList.contains("active")) {
             weatherText.style.maxHeight = content.scrollHeight + "px";
         } else {
             weatherText.style.maxHeight = 0;

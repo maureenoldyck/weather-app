@@ -17,11 +17,6 @@ img {
     width: 5%;
 }
 
-.--active::after {
-    content: "\2212";
-}
-
-
 /* Search bar / Header */
 
 #city {
@@ -90,6 +85,9 @@ form {
     transition: max-height 0.2s ease-out;
 }
 
+.active::after {
+    content: "\2212";
+}
 
 
 /* Today's Weather */
